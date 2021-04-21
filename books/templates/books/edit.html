@@ -1,0 +1,12 @@
+<html>
+  <head></head>
+  <body>
+    <form action= "{% url "edit" book.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success" > Update Book </button>
+    </form>
+
+
+  </body>
+</html>
