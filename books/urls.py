@@ -10,4 +10,7 @@ urlpatterns = [
     path("edit/<int:id>",views.edit,name="edit" ),
     path("delete/<int:id>",views.delete,name="delete" ),
     path("showbook/<int:id>", views.showbook,name="showbook"),
+    path("createcategory",views.createcategory,name="createcategory"),
+    path("createuuid",views.createuuid,name="createuuid"),
+    
 ]

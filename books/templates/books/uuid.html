@@ -1,0 +1,9 @@
+{% extends 'layout/main.html' %}
+
+    {% block body %}
+    <form action= "{% url "createuuid" %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" >Add author_title </button>
+    </form>
+    {% endblock  %}
