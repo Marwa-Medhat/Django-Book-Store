@@ -22,7 +22,7 @@ class Category (models.Model):
 
 
 class Isbin (models.Model):
-     # book_title=models.CharField(max_length=255)
+     book_title=models.CharField(max_length=255,null=True,blank=True)
      author_title=models.CharField(max_length=50)
      booknumber = models.UUIDField(default=uuid.uuid4, editable=False)
 
@@ -31,11 +31,12 @@ class Isbin (models.Model):
           return f"{self. author_title} author_title | {self.  booknumber} booknumber "  
 
 class Book (models.Model):
-     title=models.CharField(max_length=255)
+     # title=models.CharField(max_length=255)
      content=models.TextField(max_length=2048)
      Categories=models.ManyToManyField(Category)
      author=models.ForeignKey(User,on_delete=models.CASCADE,null=True,related_name="books")
      isbin=models.OneToOneField(Isbin,on_delete=models.CASCADE,null=True,blank=True)
+     # isbin=models.OneToOneField(Isbin,on_delete=models.CASCADE,default=default)
      tag=models.ForeignKey(Tag,on_delete=models.CASCADE,null=True,blank=True)
 
 

@@ -7,7 +7,7 @@ from .forms import BookForm ,categoryForm
 # Register your models here.
 class BookAdmin (admin.ModelAdmin):
     form=BookForm
-    list_display=("title","author","content")
+    list_display=("author","content")
     list_filter=(("Categories"),)
     # search_fields=(("title"),)
 class categoryAdmin (admin.ModelAdmin):

@@ -8,12 +8,12 @@ class BookForm(forms.ModelForm):
         model = Book
         fields = '__all__'
    
-    def clean_title(self):
-        title = self.cleaned_data.get("title")
-        if len(title) in range(10,50) :  
-             return title
-        else :
-            raise ValidationError("title must be betwen  10 and 50 chars")
+    # def clean_title(self):
+    #     title = self.cleaned_data.get("title")
+    #     if len(title) in range(10,50) :  
+    #          return title
+    #     else :
+    #         raise ValidationError("title must be betwen  10 and 50 chars")
         
     def clean(self):
         super(BookForm,self).clean()
@@ -45,6 +45,13 @@ class uuidForm(forms.ModelForm):
     class Meta:
         model = Isbin
         fields = '__all__' 
+    
+    def clean(self):
+        title = self.cleaned_data.get("book_title")
+        if len(title) in range(10,50) :  
+            return self.cleaned_data
+        else :
+            raise ValidationError("title must be betwen  10 and 50 chars")    
 
 
               

@@ -7,9 +7,21 @@
 {% block body %}
 <!-- <h1>Hello from index</h1> -->
 <h1 style="color: blue">All Books</h1>
+
+
+
+
+
+{% if request.user.is_authenticated %}
+   <h3>welcome {{request.user}}</h3>
+{% endif %}
+
+
 {% for book in books %}
-<!-- <h2>{{book.isbin.book_title}}</h2> -->
-<h2>{{book.title}}</h2>
+<h2>book title : </h2>
+<p> {{book.isbin.book_title}}</p>
+<!-- <h2>{{book.title}}</h2> -->
+<h2>book content :</h2>
 <p>{{book.content}}</p>
 <a href="{% url "showbook" book.id %}">Show Book</a>
 <a href="{% url "delete" book.id %}">Delete Book</a>
@@ -17,6 +29,7 @@
 
 <hr />
 {%endfor%}    
-<a href="{% url "create" %}">Create Book</a>
+<a href="{% url "create" %}">Book informtion</a>
 <a href="{% url "createcategory" %}">Create category</a>
+<a href="{% url "createuuid" %}">create book </a>
 {% endblock  %}
