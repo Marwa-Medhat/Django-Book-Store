@@ -19,8 +19,8 @@
 
 {% for book in books %}
 <h2>book title : </h2>
-<p> {{book.isbin.book_title}}</p>
-<!-- <h2>{{book.title}}</h2> -->
+<!-- <p> {{book.isbin.book_title}}</p> -->
+<h2>{{book.title}}</h2>
 <h2>book content :</h2>
 <p>{{book.content}}</p>
 <a href="{% url "showbook" book.id %}">Show Book</a>
