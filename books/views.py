@@ -9,14 +9,12 @@ from django.contrib.auth.decorators import login_required, permission_required
 
 # @login_required(login_url="/login")
 @login_required()
-# @permission_required(["books.views.index"], raise_exception=True)
 def index(request):
     books = Book.objects.all()
     return render(request, "books/index.html", {"books": books})
 
 
 @login_required()
-# @permission_required(["books.views.create"], raise_exception=True)
 def create(request):
     form = BookForm(request.POST or None)
     if form.is_valid():
@@ -26,7 +24,6 @@ def create(request):
 
 
 @login_required()
-# @permission_required(["books.views.createcategory"], raise_exception=True)
 def createcategory(request):
     form = categoryForm(request.POST or None)
     if form.is_valid():
@@ -44,7 +41,6 @@ def createuuid(request):
 
 
 @login_required()
-# @permission_required(["books.views.edit"], raise_exception=True)
 def edit(request, id):
     book = Book.objects.get(pk=id)
     form = BookForm(request.POST or None, instance=book)
@@ -63,7 +59,6 @@ def delete(request, id):
 
 
 @login_required()
-# @permission_required(["books.views.showbook"], raise_exception=True)
 def showbook(request, id):
     book = Book.objects.get(pk=id)
     return render(request, "books/showbook.html", {"book": book})
